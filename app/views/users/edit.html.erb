@@ -1,2 +1,26 @@
-<h1>editプロフィール</h1>
-<p>ここでユーザーイメージ画像と自己紹介文を設定</p>
+                <% if  @user.errors.any? %>
+                    <div id="error_explanation">
+                        <ul class = "error_list">
+                            <h4 class = "error_title"><%= pluralize(@user.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+                            <% @user.errors.full_messages.each do |message| %>
+                                <li class="error_msg"><%= message %></li>
+                            <% end %>
+
+                        </ul>
+                    </div>
+                <% end %>
+
+<h2>プロフィール編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <p>Name</p>
+  <%= f.text_field :name%>
+
+  <p>profile image</p>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60 %>
+  <%= f.attachment_field :profile_image %>
+
+  <p>introduction</p>
+  <%= f.text_area :introduction%>
+  <%= f.submit "変更を保存" %>
+<% end %>

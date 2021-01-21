@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+次回は
+
+
+ログインしていない状態ではどの操作もログイン画面に遷移するように
+ログインしているユーザーのみ許可の制限を作る

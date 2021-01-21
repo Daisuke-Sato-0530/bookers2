@@ -1,3 +1,56 @@
-<h1>登録済みユーザー一覧</h1>
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-3">
+      <h1>userinfo</h1>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <table class = "table">
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </table>
 
-<h1>左に自分のインフォとNewBook</h1>
+      <div class = "row">
+        <%= link_to 'edit', edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+      </div>
+
+
+
+      <h1>NewBook</h1>
+        <%= form_with model:@book,url:'/books', local:true do |f| %>
+          <h4>title</h4>
+            <%= f.text_field :title %>
+          <h4>body</h4>
+            <%= f.text_area :body %>
+            <%= f.submit '投稿',class: "btn btn-outline-secondary btn-block" %>
+        <% end %>
+    </div>
+    <div class = "col-md-8 offset-md-1">
+      <h1>登録済みユーザー一覧</h1>
+      <table class = "table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user|%>
+            <tr>
+              <th>
+              <%= attachment_image_tag user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg", size:'50x50'%>
+              </th>
+              <th><%= user.name %></th>
+              <th><%= link_to 'show',user_path(user) %></th>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

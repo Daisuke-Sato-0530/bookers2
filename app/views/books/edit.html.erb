@@ -1,0 +1,23 @@
+                <% if  @book.errors.any? %>
+                    <div id="error_explanation">
+                        <ul class = "error_list">
+                            <h4 class = "error_title"><%= pluralize(@book.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+                            <% @book.errors.full_messages.each do |message| %>
+                                <li class="error_msg"><%= message %></li>
+                            <% end %>
+
+                        </ul>
+                    </div>
+                <% end %>
+
+<h1>edit page</h1>
+
+<%= form_with model:@book, local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title%>
+
+  <p>body</p>
+  <%= f.text_area :body%>
+  <%= f.submit "変更を保存" %>
+<% end %>
