@@ -26,5 +26,6 @@ Things you may want to cover:
 
 次回は
 
+新規登録ができない
+Rspecのエラーについて
 
-ログインしているユーザーのみ許可の制限を作る

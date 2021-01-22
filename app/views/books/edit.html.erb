@@ -11,7 +11,7 @@
                     </div>
                 <% end %>
 
-<h1>edit page</h1>
+<h1>Editing Book</h1>
 
 <%= form_with model:@book, local:true do |f| %>
   <p>Title</p>
@@ -19,5 +19,8 @@
 
   <p>body</p>
   <%= f.text_area :body%>
-  <%= f.submit "変更を保存" %>
+  <%= f.submit "Update Book", class: "btn btn-success" %>
 <% end %>
+
+<%= link_to 'Show', book_path(@book.id) %>
+<%= link_to 'Back', books_path %>

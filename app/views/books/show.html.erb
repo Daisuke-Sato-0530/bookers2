@@ -18,23 +18,27 @@
 
       <div class = "row">
         <% if @user.id == current_user.id %>
-          <%= link_to 'edit', edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+          <% end %>
         <% else %>
-          <%= link_to 'edit', user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+          <% end %>
         <% end %>
       </div>
 
-      <h1>NewBook</h1>
+      <h1>New book</h1>
         <%= form_with model:@book,url:'/books', local:true do |f| %>
           <h4>title</h4>
             <%= f.text_field :title %>
           <h4>body</h4>
             <%= f.text_area :body %>
-            <%= f.submit '投稿',class: "btn btn-outline-secondary btn-block" %>
+            <%= f.submit 'Create Book',class: "btn btn-outline-secondary btn-block" %>
         <% end %>
     </div>
     <div class = "col-md-8 offset-md-1">
-      <h1>book detail</h1>
+      <h1>Book detail</h1>
       <table class = "table table-hover table-inverse">
         <thead>
           <tr>
@@ -52,8 +56,8 @@
               <th><%= @book_detail.title %></th>
               <th><%= @book_detail.body %></th>
                 <% if @book_detail.user_id == current_user.id %>
-              <th><%= link_to 'edit', edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></th>
-              <th><%= link_to "delete", book_path(@book_detail), method: :delete, "data-confirm" => "Are you sure?" %></th>
+              <th><%= link_to 'Edit', edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></th>
+              <th><%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "Are you sure?" %></th>
                 <% else %>
                 <% end %>
             </tr>

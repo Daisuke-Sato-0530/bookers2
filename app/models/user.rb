@@ -8,7 +8,7 @@ class User < ApplicationRecord
     length: { minimum: 2, maximum: 20 }
 
   validates :introduction,
-    length: { maximum: 10 }
+    length: { maximum: 50 }
 
   has_many :books, dependent: :destroy
   attachment :image
