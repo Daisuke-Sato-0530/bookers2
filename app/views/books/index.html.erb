@@ -1,31 +1,28 @@
-
 <p class = "notice"><%= notice %></p>
 
-                <% if @book.errors.any? %>
-                    <div id="error_explanation">
-                        <ul class = "error_list">
-                            <h4 class = "error_title"><%= pluralize(@book.errors.count, "error") %> prohibited this map from being saved:</h2>
-
-                            <% @book.errors.full_messages.each do |message| %>
-                                <li class="error_msg"><%= message %></li>
-                            <% end %>
-
-                        </ul>
-                    </div>
-                <% end %>
+<% if @book.errors.any? %>
+  <div id="error_explanation">
+    <ul class = "error_list">
+      <h4 class = "error_title"><%= pluralize(@book.errors.count, "error") %> prohibited this map from being saved:</h2>
+      <% @book.errors.full_messages.each do |message| %>
+        <li class="error_msg"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3">
-      <h1>userinfo</h1>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <h1>Userinfo</h1>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", size:'100x100' %>
       <table class = "table">
         <tr>
-          <th>name</th>
+          <th>Name</th>
           <th><%= @user.name %></th>
         </tr>
         <tr>
-          <th>introduction</th>
+          <th>Introduction</th>
           <th><%= @user.introduction %></th>
         </tr>
       </table>

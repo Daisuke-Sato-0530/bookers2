@@ -3,15 +3,15 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3">
-      <h1>userinfo</h1>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+      <h1>Userinfo</h1>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", size:'100x100' %>
       <table class = "table">
         <tr>
-          <th>name</th>
+          <th>Name</th>
           <th><%= @user.name %></th>
         </tr>
         <tr>
-          <th>introduction</th>
+          <th>Introduction</th>
           <th><%= @user.introduction %></th>
         </tr>
       </table>
@@ -37,21 +37,21 @@
         <thead>
           <tr>
             <th></th>
-            <th>title</th>
-            <th>body</th>
+            <th>Title</th>
+            <th>Body</th>
           </tr>
         </thead>
         <tbody>
             <tr>
               <th>
-                <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, '/',format: 'jpeg' %><br>
+                <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, '/',format: 'jpeg',fallback: "no_image.jpg", size:'50x50'  %><br>
                 <%= link_to @user.name, user_path(@book_detail.user) %>
               </th>
               <th><%= @book_detail.title %></th>
               <th><%= @book_detail.body %></th>
                 <% if @book_detail.user_id == current_user.id %>
               <th><%= link_to 'Edit', edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></th>
-              <th><%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "Are you sure?" %></th>
+              <th><%= link_to "Destroy", book_path(@book_detail), method: :delete, "data-confirm" => "Are you sure?", class: "btn btn-sm btn-danger"%></th>
                 <% else %>
                 <% end %>
             </tr>
