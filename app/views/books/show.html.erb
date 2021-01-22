@@ -51,8 +51,11 @@
               </th>
               <th><%= @book_detail.title %></th>
               <th><%= @book_detail.body %></th>
+                <% if @book_detail.user_id == current_user.id %>
               <th><%= link_to 'edit', edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></th>
               <th><%= link_to "delete", book_path(@book_detail), method: :delete, "data-confirm" => "Are you sure?" %></th>
+                <% else %>
+                <% end %>
             </tr>
         </tbody>
       </table>
