@@ -1,5 +1,6 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
+    
     <div class = "col-md-3">
       <h1>Userinfo</h1>
       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100' %>
@@ -29,6 +30,7 @@
             <%= f.submit 'Create Book',class: "btn btn-outline-secondary btn-block" %>
         <% end %>
     </div>
+    
     <div class = "col-md-8 offset-md-1">
       <h1>Books</h1>
       <table class = "table table-hover table-inverse">
