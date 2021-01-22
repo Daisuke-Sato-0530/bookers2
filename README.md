@@ -26,6 +26,8 @@ Things you may want to cover:
 
 次回は
 
-新規登録ができない
-Rspecのエラーについて
+部分テンプレート
+なぜローカル変数にするのか
 
+deviseについて
+protectの内容について
