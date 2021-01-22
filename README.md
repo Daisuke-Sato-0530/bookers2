@@ -31,3 +31,6 @@ Things you may want to cover:
 
 deviseについて
 protectの内容について
+
+
+できた！
